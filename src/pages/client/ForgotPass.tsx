@@ -1,5 +1,6 @@
+import { Label, TextInput } from "flowbite-react"
 import { Link } from "react-router-dom"
-
+import { HiMail } from "react-icons/hi"
 const ForgotPass = () => {
     return (
         <>
@@ -32,9 +33,15 @@ const ForgotPass = () => {
                     </div>
                     <form action="" className="*:my-4 w-[340px]">
                         <div>
-                            <input type="text" name="" id="" placeholder="Nhập email để khôi phục mật khẩu !"
+                            {/* <input type="text" name="" id="" placeholder="Nhập email để khôi phục mật khẩu !"
                                 className="bg-gray-100 border-l-4 border-[#00A9FF] w-full py-2 pl-3"
-                            />
+                            /> */}
+                            <div className="max-w-md">
+                                <div className="mb-2 block">
+                                    <Label htmlFor="email4" value="Your email" />
+                                </div>
+                                <TextInput id="email4" type="email" icon={HiMail} placeholder="name@gmail.com" required />
+                            </div>
                             <div className="text-right mt-2">
                                 <Link to={"/login"} className="text-[#00A9FF] hover:font-medium hover:text-blue-600 text-sm">Back to login !</Link>
                             </div>
