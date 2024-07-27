@@ -1,4 +1,6 @@
+import { TextInput } from "flowbite-react"
 import { Link } from "react-router-dom"
+import { HiMail } from "react-icons/hi"
 type Props = {
     isLogin?: boolean
 }
@@ -34,9 +36,7 @@ const AuthForm = ({ isLogin }: Props) => {
                     </div>
                     <form action="" className="*:my-4 w-[340px]">
                         <div>
-                            <input type="text" name="" id="" placeholder="Email"
-                                className="bg-gray-100 border-l-4 border-[#00A9FF] w-full py-2 pl-3"
-                            />
+                            <TextInput id="email4" type="email" icon={HiMail} placeholder="name@gmail.com" required />
                         </div>
                         <div>
                             <input type="text" name="" id="" placeholder="Password"
