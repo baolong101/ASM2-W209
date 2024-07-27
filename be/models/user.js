@@ -29,6 +29,9 @@ const userSchema = new Schema(
       enum: ["ADMIN", "USER"],
       default: "USER",
     },
+    passwordResetToken: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

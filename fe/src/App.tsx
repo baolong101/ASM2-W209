@@ -7,6 +7,7 @@ import AdminLayout from "./component/Layout/Admin";
 import Detail from "./pages/client/Detail";
 import AuthForm from "./pages/client/AuthForm";
 import ForgotPass from "./pages/client/ForgotPass";
+import ResetPassword from "./pages/client/ResetPassword";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="login" element={<AuthForm isLogin />} />
           <Route path="register" element={<AuthForm />} />
           <Route path="forgotpass" element={<ForgotPass />} />
+          <Route path="reset-password" element={<ResetPassword />} />
           <Route path="admin" element={<AdminLayout />}>
             <Route index path="" element={<Dashboard />} />
           </Route>
