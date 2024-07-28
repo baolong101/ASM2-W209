@@ -17,7 +17,7 @@ const AdminLayout = () => {
             <div className="flex w-full" >
                 <aside className="sidebar p-[20px] w-[250px] h-dvh bg-[#00A9FF]">
                     <div className="logo mb-[20px] w-full *:mx-auto text-center">
-                        <img src="../src/assets/images/logoadmin.png" alt="" />
+                        <img src="../src/assets/images/logoadmin.png" alt="" className="w-24" />
                         <p className="mt-[15px] text-white font-semibold">AKKA</p>
                     </div>
                     <ul className="list-none p-0 *:my-[5px] *:p-[15px] text-left *:text-white *:font-medium *:text-[14px] ">
