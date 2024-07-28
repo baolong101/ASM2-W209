@@ -6,11 +6,11 @@ import {
   resetPassword,
 } from "../controller/auth.js";
 
-const router = express.Router();
+const authRouter = express.Router();
 
-router.post("/register", register);
-router.post("/login", login);
-router.post("/forgot-password", forgotPassword);
-router.post("/reset-password", resetPassword);
+authRouter.post("/register", register);
+authRouter.post("/login", login);
+authRouter.post("/forgot-password", forgotPassword);
+authRouter.post("/reset-password", resetPassword);
 
-export default router;
+export default authRouter;
