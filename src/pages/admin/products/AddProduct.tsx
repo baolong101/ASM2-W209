@@ -6,7 +6,7 @@ const AddProduct = () => {
                 <h1 className='p-2 text-sm rounded-md font-medium'>Thêm Sản Phẩm</h1>
                 <hr className='mt-4 bg-[#FFEA20] h-[2px]' />
             </div>
-            <div className='py-2 mx-6'>
+            <div className='py-2 mx-6 mt-2'>
                 <form className="">
                     <div className='flex'>
                         <div className="mb-5 w-[100px] mr-5">

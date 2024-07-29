@@ -6,7 +6,7 @@ const AddCate = () => {
                 <h1 className='p-2 text-sm rounded-md font-medium'>Thêm Danh Mục</h1>
                 <hr className='mt-4 bg-[#FFEA20] h-[2px]' />
             </div>
-            <div className='py-2 mx-6'>
+            <div className='py-2 mx-6  mt-2'>
                 <form className="">
                     <div className='flex *:mr-5'>
                         <div className="mb-5 w-[200px]">

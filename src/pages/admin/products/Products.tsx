@@ -37,7 +37,7 @@ const Products = () => {
                                 Shirt
                             </td>
                             <td className="px-6 py-4">
-                                100000
+                                110000
                             </td>
                             <td className="px-6 py-4">
                                 Mô Tả Sản Phẩm
@@ -64,7 +64,7 @@ const Products = () => {
                                 Shirt
                             </td>
                             <td className="px-6 py-4">
-                                200000
+                                200002
                             </td>
                             <td className="px-6 py-4">
                                 Mô Tả Sản Phẩm
