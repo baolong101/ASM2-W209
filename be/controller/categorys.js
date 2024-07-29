@@ -5,7 +5,7 @@ export const addCategory= async (req,res)=>{
     const category = await new categoryModel(req.body).save();
     res.send({status: true, data:category});    
 }
-// get ---------------------------------------
+// get ----------------------------------------------------------
 export const getCategory=async(req,res)=>{
     try {
         const page= req.query.page;
