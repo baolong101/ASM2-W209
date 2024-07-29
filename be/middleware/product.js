@@ -6,10 +6,6 @@ const productSchema = Joi.object({
         "string.empty": "Tên không được để trống"
     }),
 
-    image: Joi.string().required().messages({
-        "any.required": "Hình ảnh không được để trống",
-        "string.empty": "Hình ảnh không được để trống"
-    }),
 
     price: Joi.number().required().min(1000).messages({
         "any.required": "Giá không được để trống",
@@ -18,8 +14,8 @@ const productSchema = Joi.object({
 });
 
 export const checkValidateProduct = (req, res, next) => {
-    const { name, image, price } = req.body;
-    const { error } = productSchema.validate({ name, image, price });
+    const { name, price } = req.body;
+    const { error } = productSchema.validate({ name, price });
 
     if (error) {
         return res.status(400).json({ status: false, message: error.details[0].message });
