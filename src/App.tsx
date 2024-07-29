@@ -10,6 +10,10 @@ import AuthForm from "./pages/client/AuthForm";
 import ForgotPass from "./pages/client/ForgotPass";
 import ResetPassword from "./pages/client/ResetPassword";
 import Shirt from "./pages/client/Shirt";
+import Categories from "./pages/admin/Categories/Category";
+import AddCate from "./pages/admin/Categories/AddCate";
+import Products from "./pages/admin/products/Products";
+import AddProduct from "./pages/admin/products/AddProduct";
 
 
 function App() {
@@ -28,6 +32,10 @@ function App() {
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="admin" element={<AdminLayout />}>
             <Route index path="" element={<Dashboard />} />
+            <Route path="categories" element={<Categories />} />
+            <Route path="categories/addcate" element={<AddCate />} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/addproduct" element={<AddProduct />} />
           </Route>
         </Routes>
       </main>
