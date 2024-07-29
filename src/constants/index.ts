@@ -1,2 +1,0 @@
-export const TOKEN_STORAGE_KEY = "W209_TOKEN";
-export const USER_INFO_STORAGE_KEY = "W209_USER_INFO";
