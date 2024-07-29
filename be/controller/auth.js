@@ -1,7 +1,7 @@
 import UserModel from "../models/user.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import nodemailer from "nodemailer";
+
 
 export const register = async (req, res) => {
   const { name, email, phone, password } = req.body;

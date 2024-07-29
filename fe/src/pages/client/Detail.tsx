@@ -1,10 +1,11 @@
+import { Button } from "flowbite-react";
 import { useState } from "react";
 import { Link } from "react-router-dom"
 
 
 const Detail = () => {
-    const [selectedSize, setSelectedSize] = useState<string | null>(null);
-    const sizes = ['X', 'M', 'L', 'XL', 'XXL'];
+    // const [selectedSize, setSelectedSize] = useState<string | null>(null);
+    // const sizes = ['X', 'M', 'L', 'XL', 'XXL'];
     return (
         <>
             <div className="flex items-center bg-gray-200">
@@ -18,20 +19,17 @@ const Detail = () => {
                 </svg>
                 <h3 className="mb-1 mx-2 hover:underline">Detail</h3>
             </div>
-            <main className="flex mx-auto *:border w-[1300px] gap-2">
+            {/* Detail */}
+            <main className="flex mx-auto w-[1300px] gap-2 mt-5 border rounded-xl *:mt-3">
                 <div className="w-[35%]">
-                    <img src="../src/assets/images/shirt.png" className="border" alt="" />
-                    {/* <div>
-                        <img src="../src/assets/images/shirt.png" alt="" />
-                        <img src="../src/assets/images/shirt.png" alt="" />
-                    </div> */}
+                    <img src="../src/assets/images/shirt.png" className="" alt="" />
                 </div>
                 <div className="w-[65%]">
                     {/* About */}
                     <div className="">
                         <h1 className="text-2xl font-normal">Tên sản phẩm</h1>
                         <p className="text-xl text-red-500 font-medium">99$</p>
-                        <div>
+                        <div className="mt-3">
                             <p className="font-medium">Mô tả sản phẩm: </p>
                             <p>
                                 Chất liệu: Vải French Terry.
@@ -46,22 +44,33 @@ const Detail = () => {
                     </div>
                     {/* Size */}
                     <div>
-                        <h3 className="text-xl font-normal">Size</h3>
-                        <div className="*:mx-2 *:border *:px-7 *:py-1 *:rounded-sm">
+                        <h3 className="text-xl font-normal mt-3">Size</h3>
+                        {/* <div className="*:mx-2 *:border *:px-7 *:py-1 *:rounded-sm">
                             {sizes.map(size => (
                                 <button
-                                    key={size}
-                                    className={`px-7 py-1 border rounded-sm ${selectedSize === size ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
-                                    onClick={() => setSelectedSize(size)}
+                                key={size}
+                                className={`px-7 py-1 border rounded-sm ${selectedSize === size ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
+                                onClick={() => setSelectedSize(size)}
                                 >
-                                    {size}
+                                {size}
                                 </button>
-                            ))}
+                                ))}
+                                </div> */}
+                        <div className="flex flex-wrap">
+                            <Button.Group outline className="*:px-3 my-6">
+                                <Button color="gray">S</Button>
+                                <Button color="gray">L</Button>
+                                <Button color="gray">XL</Button>
+                                <Button color="gray">XXL</Button>
+                            </Button.Group>
                         </div>
                     </div>
+                    {/*  */}
+                    <Button outline gradientDuoTone="cyanToBlue" className="mt-5">
+                        Payment
+                    </Button>
                 </div>
             </main>
-
         </>
 
     )
