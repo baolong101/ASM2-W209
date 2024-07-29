@@ -3,7 +3,7 @@ import CountdownTimer from "./CountdownTimer"
 import { Button, Drawer } from "flowbite-react";
 import { useState } from "react";
 import { Menu, MenuItem } from "@mui/material";
-import { TOKEN_STORAGE_KEY, USER_INFO_STORAGE_KEY } from "../constants";
+import { TOKEN_STORAGE_KEY, USER_INFO_STORAGE_KEY } from "../../constants";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
