@@ -14,9 +14,29 @@ import Categories from "./pages/admin/Categories/Category";
 import AddCate from "./pages/admin/Categories/AddCate";
 import Products from "./pages/admin/products/Products";
 import AddProduct from "./pages/admin/products/AddProduct";
+import { useEffect, useState } from "react";
+import { IProduct } from "./interface/IProduct";
+import { instance } from "./instance/instance";
+import { ICategory } from "./interface/ICategory";
 
 
 function App() {
+  // const navigate = useNavigate()
+  const [products, setProduct] = useState<IProduct[]>([])
+  const [categories, setCagtegory] = useState<ICategory[]>([])
+  useEffect(() => {
+    (async () => {
+      const { data } = await instance.get("/products")
+      setProduct(data)
+    })()
+  }, [])
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await instance.get("/category")
+      setCagtegory(data)
+    })()
+  }, [])
   return (
     <>
       <main>
@@ -32,9 +52,9 @@ function App() {
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="admin" element={<AdminLayout />}>
             <Route index path="" element={<Dashboard />} />
-            <Route path="categories" element={<Categories />} />
+            <Route path="categories" element={<Categories categoris={categories} />} />
             <Route path="categories/addcate" element={<AddCate />} />
-            <Route path="products" element={<Products />} />
+            <Route path="products" element={<Products products={products} />} />
             <Route path="products/addproduct" element={<AddProduct />} />
           </Route>
         </Routes>

@@ -38,15 +38,16 @@ const AdminLayout = () => {
                 </aside>
                 <main className="main-content w-full flex-1 mt-4">
                     <div className="breadcrumb flex justify-between items-center  mx-5 mb-3 border rounded-lg border-gray-300 *:px-10 *:py-2.5">
-                        <span className="border-l-8 rounded-l-lg border-[#00A9FF]">Danh Sách Danh Mục / Thêm danh mục</span>
-                        <span className="date-time font-semibold">{<CountTimer />}
-                            <Link to={"/"}>
-                            {/* Đăng xuất */}
+                        <span className="border-l-8 rounded-l-lg border-[#00A9FF]">|</span>
+                        <div className="date-time flex items-center *:gap-1 font-semibold">
+                            <span className="mr-3">{<CountTimer />}</span>
+                            <Link to={"/"} >
+                                {/* Đăng xuất */}
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
                                 </svg>
                             </Link>
-                        </span>
+                        </div>
                     </div>
                     <Outlet />
                 </main>

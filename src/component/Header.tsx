@@ -162,7 +162,7 @@ const Header = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round"
                                         d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                 </svg>
-                                <span className="absolute bg-red-500 top-2 rounded-[50%] w-[16px] h-[16px] text-xs text-white">99+</span>
+                                <span className="absolute bg-red-500 top-2 rounded-[50%] w-[16px] h-[16px] text-xs text-white">0</span>
                             </button>
                         </div>
                     </div>
@@ -172,14 +172,23 @@ const Header = () => {
             <Drawer open={isOpen} onClose={handleClose} position="right">
                 <Drawer.Header title="Cart" />
                 <Drawer.Items>
-                    {/* <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">
-                            Supercharge your hiring by taking advantage of our&nbsp;
-                            <a href="#" className="text-cyan-600 underline hover:no-underline dark:text-cyan-500">
-                                limited-time sale
-                            </a>
-                            &nbsp;for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1 design
-                            job board.
-                        </p> */}
+                    <div className="flex *:mx-1 my-1 items-center border-b-2 pb-2 mb-2">
+                        <div className="w-1/5">
+                            <img src="../src/assets/images/shirt.png" alt="" className="border rounded-lg p-1" />
+                        </div>
+                        <div className="w-3/5">
+                            <h3 className="text-base font-semibold">Sơ Mi Trắng</h3>
+                            <p className="text-xs text-red-500 font-semibold">100.000 VNĐ</p>
+                        </div>
+                        <div className="1/5">
+                            <button className="border p-2 rounded-lg bg-gray-200 hover:bg-gray-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+
+                            </button>
+                        </div>
+                    </div>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <a
                             href="#"

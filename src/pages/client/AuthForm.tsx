@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { AuthApi, ILoginBody, IRegisterBody } from "../../api/authApi";
 // import { toast } from "react-toastify";
 import { TOKEN_STORAGE_KEY, USER_INFO_STORAGE_KEY } from "../../constants";
+import { toast } from "react-toastify";
 
 type Props = {
   isLogin?: boolean;
@@ -38,13 +39,13 @@ const AuthForm = ({ isLogin }: Props) => {
   const registerAccount = async (data: IRegisterBody) => {
     try {
       await AuthApi.register(data);
-    //   toast.success("Đăng ký thành công");
+      toast.success("Đăng ký thành công");
       reset();
       navigate("/login");
     } catch (error: any) {
-    //   toast.error(
-    //     error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
-    //   );
+      toast.error(
+        error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
+      );
     }
   };
 
@@ -60,9 +61,9 @@ const AuthForm = ({ isLogin }: Props) => {
         window.location.href = "/";
       }
     } catch (error: any) {
-    //   toast.error(
-    //     error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
-    //   );
+      toast.error(
+        error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
+      );
     }
   };
 
