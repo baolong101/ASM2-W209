@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import CountTimer from "../CountTime";
 
 const AdminLayout = () => {
     const [activeTab, setActiveTab] = useState('Tất cả');
 
     const tabs = [
-        { name: 'Dashboard', link: '#' },
-        { name: 'Quản lí danh mục', link: '#' },
-        { name: 'Quản lí sản phẩm', link: '#' },
+        { name: 'Dashboard', link: '/admin' },
+        { name: 'Quản lí danh mục', link: 'categories' },
+        { name: 'Quản lí sản phẩm', link: 'products' },
         { name: 'Quản lí đơn hàng', link: '#' },
         { name: 'Quản lí bình luận', link: '#' },
         { name: 'Quản lí tài khoản', link: '#' }
@@ -17,7 +18,7 @@ const AdminLayout = () => {
             <div className="flex w-full" >
                 <aside className="sidebar p-[20px] w-[250px] h-dvh bg-[#00A9FF]">
                     <div className="logo mb-[20px] w-full *:mx-auto text-center">
-                        <img src="../src/assets/images/logoadmin.png" alt="" />
+                        <img src="../src/assets/images/logoadmin.png" alt="" className="w-24" />
                         <p className="mt-[15px] text-white font-semibold">AKKA</p>
                     </div>
                     <ul className="list-none p-0 *:my-[5px] *:p-[15px] text-left *:text-white *:font-medium *:text-[14px] ">
@@ -35,35 +36,18 @@ const AdminLayout = () => {
                         ))}
                     </ul>
                 </aside>
-                <main className="main-content w-full flex-1">
-                    <div className="header">
-                        <h1>Danh sách danh mục</h1>
+                <main className="main-content w-full flex-1 mt-4">
+                    <div className="breadcrumb flex justify-between items-center  mx-5 mb-3 border rounded-lg border-gray-300 *:px-10 *:py-2.5">
+                        <span className="border-l-8 rounded-l-lg border-[#00A9FF]">Danh Sách Danh Mục / Thêm danh mục</span>
+                        <span className="date-time font-semibold">{<CountTimer />}
+                            <Link to={"/"}>
+                            {/* Đăng xuất */}
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+                                </svg>
+                            </Link>
+                        </span>
                     </div>
-                    <div className="breadcrumb">
-                        <span>Danh Sách Danh Mục / Thêm danh mục</span>
-                        <span className="date-time">Thứ , Ngày/Tháng/Năm - Giờ/Phút/Giây</span>
-                    </div>
-                    {/* <div className="form">
-                        <div className="form-group">
-                            <label>Mã danh mục</label>
-                            <input type="text" value="Tự tăng" disabled />
-                        </div>
-                        <div className="form-group">
-                            <label>Tên danh mục</label>
-                            <input
-                                type="text"
-                                value={categoryName}
-                                onChange={(e) => setCategoryName(e.target.value)}
-                            />
-                        </div>
-                        <button onClick={addCategory} className="btn btn-add">Thêm mới</button>
-                        <button className="btn btn-list">Danh sách</button>
-                    </div> */}
-                    {/* <ul className="category-list">
-                        {categories.map((category) => (
-                            <li key={category.id}>{category.name}</li>
-                        ))}
-                    </ul> */}
                     <Outlet />
                 </main>
             </div>

@@ -1,16 +1,13 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const pschema = new mongoose.Schema({
-    name: String,
-    image: String,
-    price: Number,
-    desc: String,
-    categoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'categorys'
-    }
+const productSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    images: { type: mongoose.Schema.Types.ObjectId, ref: 'Image' }, // Liên kết với bảng Image
+    price: { type: Number, required: true },
+    desc: { type: String, required: true },
+    categoryId: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' }
 }, {
     timestamps: true
 });
 
-export const products = mongoose.model('products', pschema);
+export const Product = mongoose.model('Product', productSchema);

@@ -1,31 +1,35 @@
+
+import { Label, TextInput } from "flowbite-react"
+import { Link } from "react-router-dom"
+import { HiMail } from "react-icons/hi"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { AuthApi } from "../../api/authApi";
 
 type Inputs = {
-  email: string;
+    email: string;
 };
 
 const ForgotPass = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { isValid },
-  } = useForm<Inputs>();
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { isValid },
+    } = useForm<Inputs>();
+
+
 
   const onSubmit: SubmitHandler<Inputs> = async (values) => {
     try {
       await AuthApi.forgotPassword(values.email);
-
-      toast.success("Vui lòng kiểm tra email");
+      // toast.success("Vui lòng kiểm tra email");
       reset();
     } catch (error: any) {
-      toast.error(
-        error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
-      );
+      // toast.error(
+      //   error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
+      // );
     }
   };
 
@@ -118,3 +122,4 @@ const ForgotPass = () => {
   );
 };
 export default ForgotPass;
+

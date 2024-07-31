@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { AuthApi } from "../../api/authApi";
 
 type Inputs = {
@@ -26,15 +26,15 @@ const ResetPassword = () => {
       const { data } = await AuthApi.resetPassword({ ...values, token });
 
       if (data.status) {
-        toast.success("Đổi mật khẩu thành công!");
+        // toast.success("Đổi mật khẩu thành công!");
         navigate("/login");
       } else {
-        toast.error("Có lỗi xảy ra, vui lòng thử lại");
+        // toast.error("Có lỗi xảy ra, vui lòng thử lại");
       }
     } catch (error: any) {
-      toast.error(
-        error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
-      );
+      // toast.error(
+      //   error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
+      // );
     }
   };
 
