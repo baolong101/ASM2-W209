@@ -15,7 +15,6 @@ export const addProductWithImages = async (req, res) => {
         // Tạo đối tượng hình ảnh mới
         const imageData = {
             image1: req.files[0] ? req.files[0].path : undefined,
-            image2: req.files[1] ? req.files[1].path : undefined
         };
 
         // Lưu hình ảnh vào bảng Image
@@ -45,7 +44,7 @@ export const addProductWithImages = async (req, res) => {
 export const getProduct = async (req, res) => {
     try {
         const products = await Product.find().populate('images').exec();
-        res.status(200).send({data:products,mess:"ahhiii"});
+        res.status(200).send({data:products});
     } catch (error) {
         res.status(500).send({ status: false, message: 'Error fetching products: ' + error });
     }
