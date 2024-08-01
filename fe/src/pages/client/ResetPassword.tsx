@@ -1,31 +1,36 @@
-
-import { Label, TextInput } from "flowbite-react"
-import { Link } from "react-router-dom"
-import { HiMail } from "react-icons/hi"
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 // import { toast } from "react-toastify";
 import { AuthApi } from "../../api/authApi";
 
 type Inputs = {
-    email: string;
+  password: string;
+  confirmPassword: string;
 };
 
-const ForgotPass = () => {
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { isValid },
-    } = useForm<Inputs>();
+const ResetPassword = () => {
+  const navigate = useNavigate();
 
+  const [searchParams] = useSearchParams();
+  const token: any = searchParams.get("token");
 
+  const {
+    register,
+    handleSubmit,
+    formState: { isValid },
+  } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (values) => {
     try {
-      await AuthApi.forgotPassword(values.email);
-      // toast.success("Vui lòng kiểm tra email");
-      reset();
+      const { data } = await AuthApi.resetPassword({ ...values, token });
+
+      if (data.status) {
+        // toast.success("Đổi mật khẩu thành công!");
+        navigate("/login");
+      } else {
+        // toast.error("Có lỗi xảy ra, vui lòng thử lại");
+      }
     } catch (error: any) {
       // toast.error(
       //   error?.response?.data?.message || "Có lỗi xảy ra, vui lòng thử lại"
@@ -73,7 +78,7 @@ const ForgotPass = () => {
           </Link>
           <div className="text-center my-[50px]">
             <h1 className="text-3xl text-[#00A9FF] font-medium">
-              Forgot Password
+              Reset Password
             </h1>
             <p className="text-sm text-gray-500 text-center w-[300px] mt-6 mx-auto">
               Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod
@@ -87,18 +92,25 @@ const ForgotPass = () => {
           >
             <div>
               <input
-                type="text"
-                {...register("email", {
-                  required: "Vui lòng nhập email",
-                  pattern: {
-                    value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                    message: "Email không đúng định dạng",
-                  },
+                type="password"
+                {...register("password", {
+                  required: "Vui lòng nhập mật khẩu",
                 })}
                 id=""
-                placeholder="Nhập email để khôi phục mật khẩu!"
+                placeholder="Nhập mật khẩu mới"
+                className="bg-gray-100 border-l-4 border-[#00A9FF] w-full py-2 pl-3 outline-none mb-4"
+              />
+
+              <input
+                type="password"
+                {...register("confirmPassword", {
+                  required: "Vui lòng nhập lại mật khẩu",
+                })}
+                id=""
+                placeholder="Xác nhận mật khẩu mới"
                 className="bg-gray-100 border-l-4 border-[#00A9FF] w-full py-2 pl-3 outline-none"
               />
+
               <div className="text-right mt-2">
                 <Link
                   to={"/login"}
@@ -121,5 +133,4 @@ const ForgotPass = () => {
     </>
   );
 };
-export default ForgotPass;
-
+export default ResetPassword;
